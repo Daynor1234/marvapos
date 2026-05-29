@@ -22,14 +22,11 @@ const Login = ({ onLogin }) => {
         setError(res.error || 'Correo o contraseña incorrectos.');
       }
     } catch (err) {
-  console.error(err);
-  setError(err.message || 'No se pudo conectar con el servidor.');
-} finally {
+      setError('No se puede conectar con el servidor. ¿Está WAMP iniciado?');
+    } finally {
       setLoading(false);
     }
   };
-
- 
 
   const handleKey = e => { if (e.key === 'Enter') handleSubmit(); };
 
